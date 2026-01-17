@@ -1,0 +1,132 @@
+<div class="flex h-screen w-full overflow-hidden bg-gray-50">
+  
+  <!-- Sidebar (Desktop) -->
+  <aside class="hidden md:flex md:w-64 flex-col bg-slate-900 text-white h-full shadow-xl z-20">
+    <div class="p-6 border-b border-slate-700">
+      <h1 class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">PA Guidelines</h1>
+      <p class="text-xs text-slate-400 mt-1">Endocrine Society 2025</p>
+    </div>
+
+    <nav class="flex-1 overflow-y-auto py-4">
+      <ul class="space-y-1 px-3">
+        <li>
+          <button (click)="setView('dashboard')" 
+                  class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200"
+                  [class.bg-blue-600]="currentView() === 'dashboard'"
+                  [class.text-white]="currentView() === 'dashboard'"
+                  [class.text-slate-300]="currentView() !== 'dashboard'"
+                  [class.hover:bg-slate-800]="currentView() !== 'dashboard'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+            <span class="font-medium">Dashboard</span>
+          </button>
+        </li>
+        <li>
+          <button (click)="setView('screening')"
+                  class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200"
+                  [class.bg-blue-600]="currentView() === 'screening'"
+                  [class.text-white]="currentView() === 'screening'"
+                  [class.text-slate-300]="currentView() !== 'screening'"
+                  [class.hover:bg-slate-800]="currentView() !== 'screening'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            <span class="font-medium">Screening Tool</span>
+          </button>
+        </li>
+        <li>
+          <button (click)="setView('medications')"
+                  class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200"
+                  [class.bg-blue-600]="currentView() === 'medications'"
+                  [class.text-white]="currentView() === 'medications'"
+                  [class.text-slate-300]="currentView() !== 'medications'"
+                  [class.hover:bg-slate-800]="currentView() !== 'medications'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5l10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>
+            <span class="font-medium">Medications</span>
+          </button>
+        </li>
+        <li>
+          <button (click)="setView('management')"
+                  class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200"
+                  [class.bg-blue-600]="currentView() === 'management'"
+                  [class.text-white]="currentView() === 'management'"
+                  [class.text-slate-300]="currentView() !== 'management'"
+                  [class.hover:bg-slate-800]="currentView() !== 'management'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+            <span class="font-medium">Mgmt Algorithm</span>
+          </button>
+        </li>
+        <li>
+          <button (click)="setView('avs')"
+                  class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200"
+                  [class.bg-blue-600]="currentView() === 'avs'"
+                  [class.text-white]="currentView() === 'avs'"
+                  [class.text-slate-300]="currentView() !== 'avs'"
+                  [class.hover:bg-slate-800]="currentView() !== 'avs'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>
+            <span class="font-medium">AVS & Subtyping</span>
+          </button>
+        </li>
+        <li>
+          <button (click)="setView('recommendations')"
+                  class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200"
+                  [class.bg-blue-600]="currentView() === 'recommendations'"
+                  [class.text-white]="currentView() === 'recommendations'"
+                  [class.text-slate-300]="currentView() !== 'recommendations'"
+                  [class.hover:bg-slate-800]="currentView() !== 'recommendations'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
+            <span class="font-medium">Recommendations</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+    
+    <div class="p-4 border-t border-slate-700">
+      <p class="text-[10px] text-slate-500 text-center">
+        Developed by <br> <span class="text-white font-medium">Dr. Vardhan Kumar Reddy</span>
+      </p>
+    </div>
+  </aside>
+
+  <!-- Mobile Header -->
+  <div class="md:hidden fixed top-0 w-full h-16 bg-slate-900 z-30 flex items-center justify-between px-4 shadow-md">
+     <div class="font-bold text-white">PA Guidelines</div>
+     <button (click)="toggleMenu()" class="text-white p-2">
+       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+     </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  @if (menuOpen()) {
+    <div class="md:hidden fixed inset-0 bg-slate-900/95 z-20 pt-20 px-6">
+       <ul class="space-y-4 text-white">
+         <li (click)="setView('dashboard')" class="text-lg font-medium border-b border-slate-700 pb-2">Dashboard</li>
+         <li (click)="setView('screening')" class="text-lg font-medium border-b border-slate-700 pb-2">Screening Tool</li>
+         <li (click)="setView('medications')" class="text-lg font-medium border-b border-slate-700 pb-2">Medications</li>
+         <li (click)="setView('management')" class="text-lg font-medium border-b border-slate-700 pb-2">Mgmt Algorithm</li>
+         <li (click)="setView('avs')" class="text-lg font-medium border-b border-slate-700 pb-2">AVS & Subtyping</li>
+         <li (click)="setView('recommendations')" class="text-lg font-medium border-b border-slate-700 pb-2">Recommendations</li>
+       </ul>
+       <div class="mt-8 text-center text-slate-400 text-sm">Developed by Dr. Vardhan Kumar Reddy</div>
+    </div>
+  }
+
+  <!-- Main Content Area -->
+  <main class="flex-1 overflow-auto p-4 md:p-8 pt-20 md:pt-8 relative">
+    @if (currentView() === 'dashboard') {
+      <app-dashboard (navigate)="setView($event)"></app-dashboard>
+    }
+    @if (currentView() === 'screening') {
+      <app-screening></app-screening>
+    }
+    @if (currentView() === 'medications') {
+      <app-medications></app-medications>
+    }
+    @if (currentView() === 'management') {
+      <app-management></app-management>
+    }
+    @if (currentView() === 'recommendations') {
+      <app-recommendations></app-recommendations>
+    }
+    @if (currentView() === 'avs') {
+      <app-avs></app-avs>
+    }
+  </main>
+</div>
